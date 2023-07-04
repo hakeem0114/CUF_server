@@ -7,7 +7,7 @@ const axios = require('axios'); //Handle http requests
 
 //main arr to return 
 const universities = []
-async function generalData(){
+const generalData= async()=>{
     try{
 
             console.log('Api Data')
@@ -43,13 +43,13 @@ async function generalData(){
                     
                 })
             })
-           return  console.log(universities)     
+           return  universities  
     }
     catch(error){
         console.log(error)
     }
 }
-generalData()
+//generalData()
 
 
 //Scrape general grade 
@@ -77,13 +77,13 @@ async function generalGradeData(){
                     
                 })
             })
-           return  console.log(generalGrade )     
+           return generalGrade    
     }
     catch(error){
         console.log(error)
     }
 }
-generalGradeData()
+//generalGradeData()
 
 
 
@@ -118,13 +118,13 @@ async function majorGradeData(){
                     engineeringGrade
                 })
             })
-           return  console.log(majorGrade )     
+           return  majorGrade      
     }
     catch(error){
         console.log(error)
     }
 }
-majorGradeData()
+//majorGradeData()
 
 
 //Ranking
@@ -151,13 +151,13 @@ async function universityRanking(){
                     universityRank
                 })
             })
-           return  console.log(rankings )     
+           return  rankings     
     }
     catch(error){
         console.log(error)
     }
 }
-universityRanking()
+//universityRanking()
 
 
 //Tuition per semester
@@ -186,7 +186,7 @@ async function universityTuition(){
                     undergradTuitionForeign 
                 })
             })
-           return  console.log(tuition)     
+           return tuition     
     }
     catch(error){
         console.log(error)
@@ -194,10 +194,9 @@ async function universityTuition(){
 }
 universityTuition()
 
-export{
+module.exports = {
     generalData,
     generalGradeData,
     majorGradeData,
     universityRanking
-
 }
