@@ -42,9 +42,10 @@ app.get('/get', async(req, res)=>{
 //     universityRanking
 //    )
 
-   //console.log(res)
+   
    const ranking  = await universityRanking()
    res.status(200).send(ranking)
+   //console.log(ranking)
 })
 
 

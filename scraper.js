@@ -192,7 +192,7 @@ async function universityTuition(){
         console.log(error)
     }
 }
-universityTuition()
+//universityTuition()
 
 module.exports = {
     generalData,
