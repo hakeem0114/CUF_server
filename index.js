@@ -5,15 +5,11 @@ const bodyParser = require('body-parser')
 const helmet = require('helmet')
 require("dotenv").config();
 
-//Scrape Data Imports
-const {
-    generalData,
-    generalGradeData,
-    majorGradeData,
-    universityRanking
-} = require('./scraper.js')
+//Compiled object Imports
+const {getUniversityData} = require('./data/compiledData')
 
-//console.log(majorGradeData())
+
+/**********************EXPRESS**************************/
 //Starting express routing
 const app = express()
 app.use(express.json())
@@ -29,26 +25,20 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(helmet());
 
 
-//Process GET req from UI
-app.get('/get', async(req, res)=>{
+/**********************HTTP REQUESTS**************************/
+//Process GET req from UI 
+app.get('/universityData', async(req, res)=>{
 
   const request = req.body
-  console.log(request)
+  //console.log(request)
    
-//    res.status(200).json(
-//     generalData,
-//     generalGradeData,
-//     majorGradeData,
-//     universityRanking
-//    )
-
-   
-   const ranking  = await universityRanking()
-   res.status(200).send(ranking)
+   const universityData  = await getUniversityData()
+   res.status(200).send(JSON.stringify(universityData)) //Send as JSON(string) & receive on client as object (convert)
    //console.log(ranking)
 })
 
 
+/**********************START SERVER**************************/
 //Run server
 const port = process.env.PORT || 3030
 console.log(port)
