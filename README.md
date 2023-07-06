@@ -1,13 +1,12 @@
 # CUF_server (Will update readme later)
 
 ## REST API For Student Enrollmemt Information on Ontario Universities
-Used cheerio axios to webscrape & create my own json data.
-
-Currently refactoring retrieved data into a nicely formatted json database 
-to store on Firebase so I do not have to re-scrape & refactor again.
+Used cheerio & axios to scrape references for data in order to create
+an API for my UI
 
 
+## References
 
-References:
-Macleans..
-sd
+## How to access
+Run a get request to the server being hosted on Render:
+

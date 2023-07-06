@@ -7,6 +7,7 @@ require("dotenv").config();
 
 //Compiled object Imports
 const {getUniversityData} = require('./data/compiledData')
+const {backup} = require('./data/backup')
 
 
 /**********************EXPRESS**************************/
@@ -29,12 +30,21 @@ app.use(helmet());
 //Process GET req from UI 
 app.get('/universityData', async(req, res)=>{
 
-  const request = req.body
-  //console.log(request)
-   
-   const universityData  = await getUniversityData()
-   res.status(200).send(JSON.stringify(universityData)) //Send as JSON(string) & receive on client as object (convert)
-   //console.log(ranking)
+  try{
+    const request = req.body
+    //console.log(request)
+     
+     const universityData  = await getUniversityData()
+
+     res.status(200).json({
+      message:'University list retrieved',
+      universityData
+     }) 
+
+  }
+  catch(error){
+    console.log(error)
+  }
 })
 
 

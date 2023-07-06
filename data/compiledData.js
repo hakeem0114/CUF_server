@@ -108,6 +108,7 @@ async function getUniversityData() {
       let matchingRanking = rankings.find(r => university.universityName.includes(r.universityName));
       let matchingTuition = tuition.find(t => university.universityName.includes(t.universityName));
 
+      
       /****Special Check for missed items***/
       // U of T
       if (university.universityName.toLowerCase().includes('university of toronto')) {
@@ -152,19 +153,11 @@ async function getUniversityData() {
         matchingMajorGrade = majorGrade.find(m => m.universityName.includes('Wilfrid Laurier'));
       } 
 
-       //Queens ***Queens object is broken***
-       if (university.universityName == 'Queen’s University') {
-        matchingGeneralGrade = generalGrade.find(g =>g.universityName.includes('Queen’s'));
-      //  matchingMajorGrade = majorGrade.find(m => m.universityName.includes('Queen’s'));
-        matchingMajorGrade ={
-            universityName:university.universityName,
-            artGrade: '80%',
-            scienceGrade:'84%',
-            commerceGrade:'87%',
-            engineeringGrade:'90%',
-          }
-      } 
-     
+      //Queens 
+        if (university.universityName.includes('Q')) {
+          //matchingGeneralGrade = generalGrade.find(g =>g.universityName.includes('W'));
+          matchingMajorGrade = majorGrade.find(m => m.universityName.includes('Q'));
+        } 
 
       return {
         name: university.universityName,
