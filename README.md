@@ -1,6 +1,6 @@
 # CUF_server 
 
-## REST API For Student Enrollmemt Information on Ontario Universities
+## REST API For Students on Information of Ontario Universities
 Used cheerio & axios to scrape references for data in order to create
 an API for my UI
 
