@@ -31,15 +31,20 @@ app.use(helmet());
 app.get('/universityData', async(req, res)=>{
 
   try{
+    console.log('test')
+
     const request = req.body
     //console.log(request)
      
      const universityData  = await getUniversityData()
-
-     res.status(200).json({
-      message:'University list retrieved',
-      universityData
-     }) 
+    
+     res.status(200).json(
+        backup ||
+        {
+          message:'University list retrieved',
+          universityData
+        }
+     ) 
 
   }
   catch(error){
@@ -47,7 +52,7 @@ app.get('/universityData', async(req, res)=>{
   }
 })
 
-
+//console.log(backup)
 /**********************START SERVER**************************/
 //Run server
 const port = process.env.PORT || 3030

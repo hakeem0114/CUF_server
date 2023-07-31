@@ -347,4 +347,4 @@ const backup = [
     }
 ]
 
-module.exports = backup
+exports.backup = backup
